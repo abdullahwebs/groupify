@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style/register.css">
+    <title>Get In Now!</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="icon">🔑</div>
+    <h2>Login Now!</h2>
+    <p>Welcome Back To Cummunity of Fun And Learning</p>
+    <form id="form" action="" method="post">
+
+        <div class="input-field">
+            <input type="email" placeholder="Email" name="email" required>
+        </div>
+        <div class="input-field">
+            <input type="password" placeholder="Password" name="password" required>
+        </div>
+        <p class="forgot">Forgot password?</p>
+        <button  class="btn" id="submitbtn">Get Started</button>
+    </form>
+    <div class="social-icons">
+      <a href="../register/" style="text-decoration: none;color: white;font-weight: 600;">Register Now</a>
+</div>
+</div>
+       
+
+
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+        let submitbtn = document.getElementById('submitbtn')
+   
+       
+        submitbtn.addEventListener('click', async (e) => {
+    e.preventDefault();
+    
+    var formInput = document.querySelector('#form');
+    var form = new FormData(formInput);
+
+    try {
+        const response = await axios.post('http://localhost:8000/login_user/', form, {
+            headers: {
+                'Content-Type': 'multipart/form-data' 
+            },
+            withCredentials: true  
+        });
+
+        const data = response.data;
+        
+        if (data.status === true) {
+            localStorage.setItem('username', data.username);
+            window.location.replace('http://localhost:8000/landing/');
+        } else {
+            console.log(data.error);
+        }
+
+    } catch (error) {
+        console.error("Login failed", error.response?.data || error.message);
+    }
+});
+
+
+     
+
+
+        
+    </script>
+</body>
+</html>

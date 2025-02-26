@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create New Group - WhatsApp</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+          /* background-color:rgb(32, 38, 59); */
+    background-image: url(../static/landing-bg.png);
+    background-repeat: no-repeat;
+    backdrop-filter: brightness(0.8);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h1 {
+      font-family: fantasy;
+    letter-spacing: 4px;
+    font-weight: 500;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+.main-form-wrapper{
+  background: rgb(117 117 117 / 59%);
+}
+
+.main-form-wrapper h1{
+  color: rgb(186, 184, 188);
+}
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #075e54;
+      font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 95%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      background: transparent;
+      color: white;
+    }
+
+    .form-group input[type="file"] {
+      padding: 5px;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      height: 100px;
+    }
+
+    .form-group select {
+      appearance: none;
+      background-color: #fff;
+    }
+
+    .submit-btn {
+      background-color: #25d366; /* WhatsApp green */
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .submit-btn:hover {
+      background-color: #128c7e; /* Darker green */
+    }
+
+    
+  </style>
+</head>
+<body>
+ 
+  <div class="container main-form-wrapper">
+    <h1>Create New Group</h1>
+ <form action="../group_save/" method="post", enctype="multipart/form-data">
+  {%csrf_token%}
+      <div class="form-group">
+        <label for="group-name">Group Name</label>
+        <input type="text" id="group-name" name="group-name" placeholder="Enter group name" required>
+      </div>
+      <div class="form-group">
+        <label for="group-description">Group Description</label>
+        <textarea id="group-description" name="group-description" placeholder="Enter group description"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="group-category">Category</label>
+        <select id="group-category" style="color:black" name="group-category" required>
+          <option value="" disabled selected>Select a category</option>
+          <option value="Art">Art</option>
+          <option value="Travel">Travel</option>
+          <option value="Music">Music</option>
+          <option value="Sports">Sports</option>
+          <option value="Movies">Movies</option>
+          <option value="Design">Design</option>
+          <option value="Nature">Nature</option>
+          <option value="Technology">Technology</option>
+          <option value="Games">Games</option>
+          <option value="Photography">Photography</option>
+          <option value="Reading">Reading</option>
+          <option value="Writing">Writing</option>
+          <option value="Hiking">Hiking</option>
+          <option value="Social">Social</option>
+          <option value="Gastronomy">Gastronomy</option>
+          <option value="Singing">Singing</option>
+          <option value="Dancing">Dancing</option>
+          <option value="Astrology">Astrology</option>
+          <option value="Cars">Cars</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Self-care">Self-care</option>
+          <option value="Yoga">Yoga</option>
+          <option value="Meditation">Meditation</option>
+          <option value="Coffee">Coffee</option>
+          <option value="Skateboarding">Skateboarding</option>
+          <option value="Poetry">Poetry</option>
+          <option value="Pottery">Pottery</option>
+          <option value="Phycology">Phycology</option>
+          <option value="LGBTQIA">LGBTQIA</option>
+          <option value="Architecture">Architecture</option>          
+          <option value="Tattoo">Tattoo</option>
+          <option value="Corchet">Corchet</option>
+          <option value="Festivals">Festivals</option>
+          <option value="Enterperneurship">Enterperneurship</option>
+          <option value="Painting">Painting</option>
+          <option value="Acting">Acting</option>
+          <option value="Surf">Surf</option>
+          <option value="Lifestyle">Lifestyle</option>
+          <option value="Fashion">Fashion</option>
+          <option value="Cooking">Cooking</option>
+          <option value="Songwriting">Songwriting</option>
+          <option value="Plants">Plants</option>
+          <option value="Museum">Museum</option>
+          <option value="Podcast">Podcast</option>
+          <option value="Content Creation">Content Creation</option>
+          <option value="Drawing">Drawing</option>
+          <option value="Makeup">Makeup</option>
+          <option value="Climbing">Climbing</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="group-image">Group Image</label>
+        <input type="file" id="group-image" name="group-image">
+      </div>
+      <button type="submit" class="submit-btn" id="submitgroup">Create Group</button>
+    </form>
+  </div>
+
+  <script>
+      let submitbtn = document.getElementById('submitgroup')
+       
+       submitbtn.addEventListener('click', (e)=>{
+            
+           let group_name = document.getElementById('group-name').value
+           let group_desc = document.getElementById('group-description').value
+           let group_category = document.getElementById('group-category').value
+           let group_image = document.getElementById('group-image').files[0]  
+
+           console.log(group_image.name)
+
+           axios.post(`http://localhost:8000/group_save/`, JSON.stringify({
+               'name':group_name,
+               'groupdesc': group_desc,
+               'groupcategory':group_category,
+               'username':localStorage.getItem('username')
+           
+           }))
+
+           .then(response=>group_manage(response.data))
+
+       function group_manage(data){
+          if(data.Status == 200){
+            sessionStorage.setItem('group', group_name)  
+            window.location.replace('')
+          }
+          else{
+            alert('group creation error')
+          }
+        }
+
+       })
+
+  </script>
+</body>
+</html>

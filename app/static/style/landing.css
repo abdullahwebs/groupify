@@ -1,0 +1,386 @@
+* {
+     
+    color: #c4c4c4e6;
+}
+
+/* Light Mode (Default) */
+body {
+    background-image: url(../landing-bg.png);
+    backdrop-filter: brightness(0.8);
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    /* background-color:rgb(32, 38, 59); */
+    background-image: url(../landing-bg.png);
+    backdrop-filter: brightness(0.8);
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+/* Navbar */
+.navbar {
+    background: rgb(117 117 117 / 59%);
+    border-radius: 12px;
+    padding: 12px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s;
+    margin-top: 15px;
+    width: 97%;
+    margin: auto;
+    position: relative;
+    top: 15px;
+}
+
+.logo span{  
+    color: #c4c4c4e6;
+    width: 39px;
+    position: relative;
+    top: 5px;
+}
+
+.logo svg{
+    width: 39px;
+    fill: #c4c4c4e6;
+}
+
+body.dark-mode .navbar {
+    background: rgb(117 117 117 / 59%);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Search Input */
+.search-input {
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    outline: none;
+    width: 250px;
+    max-width: 100%;
+}
+
+body.dark-mode .search-input {
+    background-color: #2c3e50;
+    color: white;
+    border: 1px solid #fff;
+}
+
+/* Sign-Up Button */
+.signup-btn {
+    background: #000000;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .signup-btn {
+    background: white;
+    color: black;
+}
+
+.signup-btn:hover {
+    background: #444;
+    color: white;
+}
+
+/* Notification Container */
+.notification svg {
+    width: 37px;
+}
+
+#notification-container {
+    position: fixed;
+    top: 17px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    transition: top 0.5sease-in-out;
+}
+
+@media screen and (max-width:900px) {
+    #notification-container{
+        width: 90% !important;
+    }
+}
+
+/* Notification Box */
+.notification {
+    font-weight: 600;
+    background: #fdfdfd;
+    color: #000;
+    padding: 16px 34px;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    font-family: sans-serif;
+    animation: dropDown 0.5s ease forwards;
+}
+
+/* Drop-down Animation */
+@keyframes dropDown {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Fade-out Animation */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.notification svg{
+    width: 25px;
+position: relative;
+right: 7px;
+bottom: 0px;
+}
+
+/* Main Content */
+#main {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 20px;
+}
+
+/* Groups */
+.groups {
+    background: rgb(117 117 117 / 59%);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    height: auto;
+    white-space: nowrap;     /* Prevent text from wrapping */
+    overflow: hidden;        /* Hide overflowing content */
+    text-overflow: ellipsis; /* Show "..." for truncated text */
+    max-height: 670px;
+}
+
+body.dark-mode .groups {
+    background: rgb(117 117 117 / 59%);
+}
+
+.groups:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Group Image */
+.group_image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
+    margin-bottom: 19px;
+}
+
+.group-name{
+    color: white;
+    font-size: 18px;
+}
+
+.group_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.group-card{
+    min-height: 247px;
+
+}
+
+/* Groupify Logo - Premium & Smooth */
+.logo-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Light Mode */
+.logo-text {
+    color: #FF6F61;
+}
+
+/* Dark Mode */
+body.dark-mode .logo-text {
+    color: #3FC1C9;
+}
+
+/* Default (Light Mode) Navbar Links */
+ 
+
+/* Dark Mode Navbar Links */
+body.dark-mode .navbar .nav-link {
+    color: #c4c4c4e6 !important;
+}
+
+body.dark-mode .navbar .nav-link:hover{
+    color: #c4c4c4e6;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    font-size: 20px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Light Mode Theme Button */
+.theme-toggle i {
+    color: #000;
+}
+
+/* Dark Mode Theme Button */
+body.dark-mode .theme-toggle {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .theme-toggle i {
+    color: white;
+}
+
+
+
+/* Responsive Navbar */
+@media screen and (max-width: 768px) {
+
+
+    .search-input {
+        width: 100%;
+    }
+}
+
+.logo {
+    border-radius: 5px;
+    width: fit-content;
+}
+
+#searchGroup {
+    margin-top: 8px;
+    display: flex;
+}
+
+#groupSeachInput {
+    margin: 8px;
+    padding: 10px;
+
+}
+
+.search_results{
+    display: none;
+    color: white;
+    position: absolute;
+    top: 84px;
+    z-index: 1;
+    background: #0D1418;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 430px;
+    white-space: nowrap;     /* Prevent text from wrapping */
+    overflow: hidden;        /* Hide overflowing content */
+    text-overflow: ellipsis; /* Show "..." for truncated text */
+    max-height: 670px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #727272 rgba(255, 255, 255, 0.1);
+
+}
+
+.search_results ul{
+    list-style: none;
+    padding: 0px 7px;
+}
+
+.search_results ul li{
+    padding: 16px 0;
+    border-bottom: 1px solid #a1a1a1c4;
+}
+
+.search_results ul p{
+    font-weight: 600;
+    color: #fffffff0;
+    margin: 0 0;
+}
+
+.search_results .result_info{
+    font-weight: 500;
+    padding: 0;
+    color: #bebebedb;
+    white-space: nowrap;     
+    overflow: hidden;        
+    text-overflow: ellipsis;
+    width: 300px;  /* Adjust width as needed */
+
+}
+
+#pickedwrapper{
+display: none;
+}
+
+.groups_title{
+    font-family: fantasy;
+    letter-spacing: 3px;
+}
+
+/* For mobiles */
+
+@media screen and (max-width:1080px) {
+    .groups{
+        max-width: 270px ;
+margin: auto;
+    }
+
+}
+
+.group_card_category{
+    margin-left: 21px;
+    margin-top: 14px;
+    padding: 5px 13px;
+    background: rgb(185 185 185 / 27%);
+    border-radius: 4px;
+    color: #ffffffb0;
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 62px;
+}

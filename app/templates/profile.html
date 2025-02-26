@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/style/profile.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../static/style/landing.css">
+  <title>My Profile</title>
+</head>
+
+<body class="dark-mode">
+
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <!-- <a class="navbar-brand logo-text" href="#">Groupify</a> -->
+        <h2 class="logo navbar-brand logo-text"><svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+            <path
+              d="M88.2 309.1c9.8-18.3 6.8-40.8-7.5-55.8C59.4 230.9 48 204 48 176c0-63.5 63.8-128 160-128s160 64.5 160 128s-63.8 128-160 128c-13.1 0-25.8-1.3-37.8-3.6c-10.4-2-21.2-.6-30.7 4.2c-4.1 2.1-8.3 4.1-12.6 6c-16 7.2-32.9 13.5-49.9 18c2.8-4.6 5.4-9.1 7.9-13.6c1.1-1.9 2.2-3.9 3.2-5.9zM208 352c114.9 0 208-78.8 208-176S322.9 0 208 0S0 78.8 0 176c0 41.8 17.2 80.1 45.9 110.3c-.9 1.7-1.9 3.5-2.8 5.1c-10.3 18.4-22.3 36.5-36.6 52.1c-6.6 7-8.3 17.2-4.6 25.9C5.8 378.3 14.4 384 24 384c43 0 86.5-13.3 122.7-29.7c4.8-2.2 9.6-4.5 14.2-6.8c15.1 3 30.9 4.5 47.1 4.5zM432 480c16.2 0 31.9-1.6 47.1-4.5c4.6 2.3 9.4 4.6 14.2 6.8C529.5 498.7 573 512 616 512c9.6 0 18.2-5.7 22-14.5c3.8-8.8 2-19-4.6-25.9c-14.2-15.6-26.2-33.7-36.6-52.1c-.9-1.7-1.9-3.4-2.8-5.1C622.8 384.1 640 345.8 640 304c0-94.4-87.9-171.5-198.2-175.8c4.1 15.2 6.2 31.2 6.2 47.8l0 .6c87.2 6.7 144 67.5 144 127.4c0 28-11.4 54.9-32.7 77.2c-14.3 15-17.3 37.6-7.5 55.8c1.1 2 2.2 4 3.2 5.9c2.5 4.5 5.2 9 7.9 13.6c-17-4.5-33.9-10.7-49.9-18c-4.3-1.9-8.5-3.9-12.6-6c-9.5-4.8-20.3-6.2-30.7-4.2c-12.1 2.4-24.8 3.6-37.8 3.6c-61.7 0-110-26.5-136.8-62.3c-16 5.4-32.8 9.4-50 11.8C279 439.8 350 480 432 480z" />
+          </svg> <span>Groupify</span></h2>
+
+      </a>
+
+      <!-- Navbar Toggle Button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../landing/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../home/">Chat</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../group_save/">Create Group</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../profile/">Profile</a>
+          </li>
+        </ul>
+        <!-- Theme Toggle & Signup Button -->
+        <div class="d-flex align-items-center">
+          <button id="logout" class="signup-btn ms-3">Sign In</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="main-body">
+
+
+      <div class="row gutters-sm">
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex flex-column align-items-center text-center">
+                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" id="profile-image" alt="Admin"
+                  class="rounded-circle" width="150">
+                <div class="mt-3">
+                  <h4 id="name-badge"></h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mt-3">
+            <h3 class="text-center mt-4 mb-4">Your Creations</h3>
+            <ul class="list-group list-group-flush">
+
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Full Name</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <input type="text" id="fullName" name="name" class="form-control" disabled>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Email</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <input type="email" id="email" name="email" class="form-control" value="fip@jukmuh.al" disabled>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Password</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <input type="text" id="Password" name="password" class="form-control" value="fip@jukmuh.al" disabled>
+                </div>
+              </div>
+              <div class="row d-none">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Username</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <input type="text" id="username" name="username" class="form-control" value="user123" disabled>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-12">
+                  <button class="btn btn-info" id="editBtn">Edit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="row gutters-sm">
+            <!-- First Card -->
+            <div class="col-sm-6 mb-3">
+
+              <div class="card h-100">
+                <div class="card-body">
+                  <h4 class=" mb-2 mt-2 text-center">
+                    Intrest Stats
+                  </h4>
+                  <p><strong>Total: <span id="total-card-1">0%</span></strong></p>
+                  <div id="card-1"></div>
+                  <button class="btn btn-info mt-3" onclick="toggleEdit('card-1', this)">Edit</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Second Card -->
+            <div class="col-sm-6 mb-3">
+              <div class="card h-100">
+                <div class="card-body">
+                  <div id="card-2">
+                    <div class="sphere-container">
+                      <div class="outer-glow"></div>
+                      <div class="sphere" id="sphere">
+                        <div class="inner-glow"></div>
+                      </div>
+                      <div class="rank">
+                        <div class="rank-title" id="rank_name"></div>
+                        <div class="rank-subtitle" id="rank_progress"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+    <script src="../static/js/axios.min.js"></script>
+    <script src="../static/js/profile.js"></script>
+
+
+    <!-- Hidden Overlay for Editing Group -->
+    <div id="editOverlay" class="overlay">
+      <div class="form-container">
+        <h5>Edit Group</h5>
+        <form action="../group_save/" method="post" enctype="multipart/form-data" id="editForm">
+          {% csrf_token %}
+
+          <!-- Hidden Input for Group ID -->
+          <input type="hidden" id="group-id" name="group-id" value="dummy_id">
+
+          <div class="form-group">
+            <label for="group-name">Group Name</label>
+            <input type="text" id="group-name" name="group-name" placeholder="Enter group name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="group-description">Group Description</label>
+            <textarea id="group-description" name="group-description" placeholder="Enter group description"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="group-image">Group Image</label>
+            <input type="file" id="group-image" name="group-image">
+          </div>
+
+          <div class="form-buttons">
+            <button type="submit" id="updateButton" class="btn">Save Changes</button>
+            <button type="button" class="btn btn-secondary" id="closeForm">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="../static/js/axios.min.js"></script>
+    <!-- JavaScript to Show and Hide Form -->
+    <script>
+      function removeGroups(id) {
+        axios.post('http://localhost:8000/delete_groups/', {
+          'id': id,
+          'creator': localStorage.getItem('username')
+        })
+          .then(response => {
+            console.log(response.data)
+          })
+      }
+
+
+
+    </script>
+    <script>
+      function fetchAndUpdateRank() {
+        axios.post('http://localhost:8000/points_to_rank/', {
+          'username': localStorage.getItem('username')
+        })
+          .then(response => {
+            console.log("API Response:", response.data.data[0].user);
+            document.getElementById('rank_name').textContent = response.data.data[0].rank;
+            document.getElementById('rank_progress').textContent = response.data.data[0].progress + "%";
+
+            const sphere = document.getElementById('sphere');
+
+            // Reset background before setting a new one
+            sphere.style.background = '';
+            void sphere.offsetWidth; // Force a reflow to apply the change
+
+            if (response.data.data[0].rank == 'Newcommer') {
+              sphere.style.background = 'radial-gradient(circle at 30% 30%, #5a3e2b, #3e2a1c)';
+            }
+            else if (response.data.data[0].rank == 'Elite') {
+              sphere.style.background = 'radial-gradient(circle at 30% 30%, #8d8d8d, #5c5c5c)';
+            }
+            else if (response.data.data[0].rank == 'Trend raiser') {
+              sphere.style.background = 'radial-gradient(circle at 30% 30%, #a78e45, #7d6930)';
+            }
+            else if (response.data.data[0].rank == 'Trend master') {
+              sphere.style.background = 'radial-gradient(circle at 30% 30%, #6b92a4, #445e6b)';
+            }
+          })
+          .catch(error => {
+            console.error("Error fetching rank:", error);
+          });
+      }
+
+      // Run immediately
+      fetchAndUpdateRank();
+
+      // Refresh every 30 seconds
+      setInterval(fetchAndUpdateRank, 30000);
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>

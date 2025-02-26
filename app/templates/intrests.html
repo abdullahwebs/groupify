@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interest Selection</title>
+    <style>
+        body {
+            background-color:#eaeaea;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .interest {
+            padding: 10px 15px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            background-color: #f0f0f0;
+        }
+
+        .selected {
+            background-color: #ffde88;
+            border-color: #ffbf00;
+        }
+
+        .main-wrapper button{
+            padding: 17px 41px;
+    border: 1px solid #d3d3d3;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+        }
+
+        .container-wrapper {
+            padding: 34px 30px;
+    border-radius: 10px;
+    border: 1px solid #d8d8d8;
+    background: rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="container container-wrapper">
+            <h2>What inspires you? What do you enjoy?</h2>
+            <p>Select up to 10 interests.</p>
+            <div class="interests" id="interestsContainer"></div>
+        </div>
+        <button id="submitIntrest">Next</button>
+    </div>
+
+
+    <script>
+        const interestsList = [
+            "Art", "Travel", "Music", "Sports", "Movies", "Design", "Nature", "Technology",
+            "Games", "Social", "Photography", "Reading", "Writing", "Hiking", "Gastronomy", "Singing",
+            "Dancing", "Astrology", "Cars", "Shopping", "Self-care", "Yoga", "Meditation", "Coffee",
+            "Skateboarding", "Poetry", "Pottery", "Psychology", "LGBTQIA", "Architecture", "Tattoo", "Crochet",
+            "Festivals", "Entrepreneurship", "Painting", "Acting", "Surf", "Lifestyle", "Fashion", "Cooking",
+            "Songwriting", "Plants", "Museum", "Podcasts", "Content creation", "Drawing", "Makeup", "Climbing"
+        ];
+
+        const selectedInterests = [];
+        const maxSelection = 10;
+        const container = document.getElementById("interestsContainer");
+
+        function toggleInterest(interest) {
+            const index = selectedInterests.indexOf(interest);
+            if (index === -1) {
+                if (selectedInterests.length < maxSelection) {
+                    selectedInterests.push(interest);
+                } else {
+                    alert("You can only select up to " + maxSelection + " interests.");
+                    return;
+                }
+            } else {
+                selectedInterests.splice(index, 1);
+            }
+            renderInterests();
+            console.log("Selected Interests:", selectedInterests);
+
+        }
+
+        function renderInterests() {
+            container.innerHTML = "";
+            interestsList.forEach(interest => {
+                const btn = document.createElement("div");
+                btn.classList.add("interest");
+                if (selectedInterests.includes(interest)) {
+                    btn.classList.add("selected");
+                }
+                btn.textContent = interest;
+                btn.addEventListener("click", () => toggleInterest(interest));
+                container.appendChild(btn);
+            });
+        }
+
+        renderInterests();
+
+        const submitIntrest = document.getElementById('submitIntrest')
+        submitIntrest.addEventListener('click', ()=>{
+            fetch('http://localhost:8000/user_intrest/', {
+                method:'post',
+                headers:{
+                    'Content-Type':'application/json'
+                }
+                ,
+                body:JSON.stringify({
+                    'intrest':selectedInterests,
+                    'username':localStorage.getItem('username')
+                })
+            })
+            .then(response=>response.json())
+            .then(data=>{
+                console.log({'data':data.data})
+            })
+            console.log(selectedInterests)
+            window.location.replace('http://localhost:8000/home/')
+
+        })
+      
+    </script>
+   
+
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style/register.css">
+    <title>Register Now!</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="icon">🔑</div>
+    <h2>Sign up with email</h2>
+    <p>Create an ultra-premium account</p>
+    <form id="form" action="" method="post">
+        <div class="input-field">
+            <input type="text" placeholder="Name" name="name" required>
+        </div>
+        <div class="input-field">
+            <input type="text" placeholder="Username" name="username" id="username" required>
+        </div>
+        <div class="input-field">
+            <input type="email" placeholder="Email" name="email" required>
+        </div>
+        <div class="input-field">
+            <input type="password" placeholder="Password" name="password" required>
+        </div>
+        <p class="forgot">Forgot password?</p>
+        <button  class="btn" id="submitbtn" >Get Started</button>
+    </form>
+ 
+    <div class="social-icons">
+          <a href="../login/" style="text-decoration: none;color: white;font-weight: 600;">Login Now</a>
+    </div>
+</div>
+       
+
+
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+        let submitbtn = document.getElementById('submitbtn')
+   
+       
+        submitbtn.addEventListener('click', (e)=>{
+            e.preventDefault();
+            var formInput = document.querySelector('#form')
+            var form = new FormData(formInput)
+           var username=document.getElementById('username').value
+           
+            fetch('http://localhost:8000/user_save/',{
+                method:'post',
+                body: form
+            })
+            .then(response=>response.json())
+            .then(data=>console.log({'data':data.json}))
+
+            localStorage.setItem('username', username)
+            window.location.replace('http://localhost:8000/user_intrest/')
+        })
+
+        // function session_manage(user) {
+        //     // if (user.status == 200){
+        //        // Store a value in localStorage
+       
+
+        //     // }
+        // //   else{
+        // //       console.log('user exits already with same name')
+        // //   }
+        // }
+
+
+        
+    </script>
+</body>
+</html>
